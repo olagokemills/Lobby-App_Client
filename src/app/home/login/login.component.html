@@ -1,0 +1,73 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lobby
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lobby</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <div id="container" class="">
+    <div class="p-3 mt-5 mb-5">
+      <!-- <h4>Logo</h4> -->
+      <!-- <img src="assets/images/lobby.jpg" /> -->
+      <div class="pl-3">
+        <h2>
+          Hello. <br />
+          Welcome Back
+        </h2>
+      </div>
+    </div>
+
+    <div class="ion-margin-top ion-padding">
+      <div class="mb-5">
+        <form [formGroup]="LoginForm" (ngSubmit)="Login(LoginForm.value)">
+          <div class="mb-4">
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input formControlName="email"></ion-input>
+            </ion-item>
+          </div>
+          <div class="mb-4">
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input formControlName="password"></ion-input>
+            </ion-item>
+          </div>
+          <div class="w-100 mb-3">
+            <ion-button
+              expand="block"
+              type="Submit"
+              [disabled]="LoginForm.invalid"
+              >Login</ion-button
+            >
+          </div>
+        </form>
+
+        <div class="d-flex justify-content-end">
+          <div class="p-2">
+            <small>
+              <a
+                [routerLink]="['/home/forgot-password']"
+                routerLinkActive="router-link-active"
+                >Forgot password</a
+              ></small
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center w-100">
+        <a class="text-muted" [routerLink]="['/home/register']"
+          >Create account</a
+        >
+      </div>
+    </div>
+  </div>
+</ion-content>

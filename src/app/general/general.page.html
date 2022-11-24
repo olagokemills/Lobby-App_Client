@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="d-flex align-items-center">
+      <h2>L</h2>
+      <ion-searchbar
+        search-icon="search-circle"
+        animated="true"
+        placeholder="Search by keyword"
+      ></ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <router-outlet></router-outlet>
+</ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="schedule">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Posts</ion-label>
+      <ion-badge>6</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="speakers">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Work Places</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="map">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

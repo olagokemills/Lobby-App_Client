@@ -1,11 +1,11 @@
 #container {
-  text-align: center;
+  // text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // top: 50%;
+  // transform: translateY(-50%);
 }
 
 #container strong {
@@ -16,12 +16,27 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+.logo-area{
+  background-color: grey;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  color: red;
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // // top: 50%;
+  // transform: translateY(-50%);
+}
+
+.logo-area__section{
+  width: 100%;
+    align-self: center;
 }

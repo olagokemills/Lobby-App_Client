@@ -1,0 +1,26 @@
+.text-white {
+  color: white !important;
+}
+.profile-wrapper {
+  justify-content: start !important;
+}
+small {
+  color: #009150 !important;
+}
+ion-card-header.ios {
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+ion-card:hover {
+  background-color: #4fb8ff !important;
+  color: #000 !important;
+  & {
+    small {
+      color: #000 !important;
+    }
+    ion-card-title {
+      color: #000 !important;
+    }
+  }
+}
