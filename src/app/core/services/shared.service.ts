@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Clipboard } from '@angular/cdk/clipboard';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { Location } from '@angular/common';
+
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +14,9 @@ export class SharedService {
   constructor(
     private loadingCtrl: LoadingController,
     public toastController: ToastController,
-    public router: Router
+    public router: Router,
+    public clipBoard: Clipboard,
+    public location: Location
   ) {}
 
   async showLoading() {
@@ -38,5 +44,19 @@ export class SharedService {
       position: position,
     });
     await toast.present();
+  }
+  copyToClip(data:string)
+  {
+    let toCopy = `https://lobby.com/posts/${data}`;
+    this.clipBoard.copy(toCopy);
+    this.presentToast('bottom','Link copied for sharing');
+  }
+  goBack()
+  {
+    this.location.back()
+  }
+  castDateDifference(data:any)
+  {
+    return (moment(data, "YYYYMMDD").fromNow());
   }
 }

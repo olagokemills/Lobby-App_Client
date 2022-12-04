@@ -1,0 +1,7 @@
+export interface PostItems{
+
+    SinglePost:{
+        
+    }
+
+}

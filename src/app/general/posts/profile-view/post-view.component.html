@@ -1,0 +1,94 @@
+<!-- <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher> -->
+
+<ion-content class="ion-padding">
+  
+  <div class="profile-wrapper mt-5_5">
+    <div class="pb-3 pointer">
+       <ion-icon name="arrow-back-outline" (click)="utility.goBack()"></ion-icon>
+   </div>
+    <div class="d-flex align-items-center">
+      <ion-icon name="person-circle-outline" size="large"></ion-icon>
+      <h6>Olagokemills</h6>
+    </div>
+    <h6>{{PostItem?.title}}</h6>
+    <p>
+      {{PostItem?.description}}
+    </p>
+    <div class="d-flex">
+      <span class="p-2">
+        <ion-text color="medium">{{PostItem?.created_on | date : 'medium'}}</ion-text> 
+      </span>
+      <span class="d-flex align-self-center">
+        <ion-icon name="stop-outline"></ion-icon>
+      </span>
+    </div>
+
+   <div class="view-border d-flex border-top">
+      <span class="d-flex p-2">
+        <ion-text color="medium">Views</ion-text>
+        <ion-text>100</ion-text>
+      </span>
+      <span class="d-flex p-2">
+        <ion-text color="medium">Comments</ion-text>
+        <ion-text>15</ion-text>
+      </span> 
+      <span class="d-flex p-2">
+        <ion-text size="small" color="medium">Likes</ion-text>
+        <ion-text>15</ion-text>
+      </span> 
+   </div>
+
+  <div class="view-border d-flex justify-content-around">
+    <span class="d-flex p-2">
+      <ion-icon name="eye-outline" size="medium"></ion-icon> 
+    </span>
+    <span class="d-flex p-2">
+      <ion-icon name="chatbubbles-outline" size="medium"></ion-icon>
+    </span>  
+    <span class="d-flex p-2">
+      <ion-icon name="share-outline" size="medium" (click)="utility.copyToClip(PostItem?.id)"></ion-icon>
+    </span> 
+  </div>
+
+  <div>
+    <ion-list>
+        <ion-item>
+          <ion-textarea placeholder="Type something here"></ion-textarea>
+          <ion-button size="small" shape="round">Reply</ion-button>
+        </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="pt-2 view-border border-top" *ngFor="let item of PostItem?.comments">
+      <div class="d-flex align-items-center">
+      <span class="">
+          <ion-text>{{item?.created_by}}</ion-text>
+      </span>  
+        <span class="">
+          <ion-text color="medium"> &nbsp; {{ utility.castDateDifference(item?.created_on)}}</ion-text>
+        </span>
+      </div>
+      <p>{{item?.message}}</p>
+
+      <div class="d-flex justify-content-around">
+        <span class="d-flex p-2 pointer">
+          <ion-icon name="heart-outline"></ion-icon> &nbsp;
+            Upvote
+        </span> 
+        <span class="d-flex p-2 pointer">
+          <ion-icon name="heart-dislike-outline"></ion-icon> &nbsp;
+            Downvote
+        </span> 
+        <span class="d-flex p-2 pointer">
+          <ion-icon name="thumbs-up-outline"></ion-icon>&nbsp;
+           Total Likes  <ion-text>10</ion-text>
+        </span> 
+      </div>
+  </div>
+  <div  *ngIf="!PostItem?.comments" class="text-center">
+    <p>Comments are not available for this post at this time. :(</p>
+  </div>
+  </div>
+</ion-content>

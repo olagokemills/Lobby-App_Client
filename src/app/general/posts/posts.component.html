@@ -1,0 +1,37 @@
+
+
+<ion-content class="ion-padding">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <div class="profile-wrapper mt-5_5">
+    <ion-card *ngFor="let item of PostList?.posts">
+      <ion-card-header [routerLink]="['/general/post',item?.id]">
+        <small>Olagoke  <ion-icon color="dark" name="stop-outline" ></ion-icon> {{item?.created_on | date : 'medium'}}</small>
+        <ion-card-title [routerLink]="['/general/post',123]">{{item?.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="pointer" [routerLink]="['/general/post',item?.id]">
+           {{item?.description}}
+        </div>
+        <div class="d-flex justify-content-around pt-2">
+          <span class="d-flex">
+            <ion-icon name="heart-outline"></ion-icon>
+            <small>21</small>
+          </span>
+          <span class="d-flex">
+            <ion-icon name="eye-outline"></ion-icon>
+            <small>15</small>
+          </span>
+          <span class="d-flex pointer" (click)="copyToClip(item?.id)">
+            <ion-icon name="share-outline"></ion-icon> &nbsp;
+            <small>Share</small>
+          </span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
