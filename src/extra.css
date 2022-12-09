@@ -25,6 +25,9 @@
 .align-items-center {
   align-items: center;
 }
+.align-self-center {
+  align-self: center;
+}
 .text-center {
   text-align: center;
 }
@@ -55,6 +58,9 @@
 .pb-5_5 {
   padding-bottom: 3.5rem;
 }
+.pb-3{
+  padding-bottom: 0.75rem;
+}
 
 .py-3 {
   padding-top: 1rem;
@@ -63,4 +69,10 @@
 .py-2_5 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.border-top{
+   border-top: 1px solid rgb(47, 51, 54);
+}
+.pointer{
+  cursor: pointer;
 }

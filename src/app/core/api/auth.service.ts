@@ -24,6 +24,17 @@ export class AuthService {
       .pipe(catchError(this.handleError));
   }
 
+  fetchPosts(data, url:string)
+  {
+    return this.http
+        .get(`${this.apiUrl + url}?size=${data.size}&page=${data.page}`)
+  }
+  fetchSinglePost(data, url:string)
+  {
+    return this.http 
+        .get(`${this.apiUrl + url}/${data}`)
+  }
+
   handleError(error: HttpErrorResponse): Observable<ErrorModel> {
     let dataError = new ErrorModel();
     dataError.errorNumber = error.status;

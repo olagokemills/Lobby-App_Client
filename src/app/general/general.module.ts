@@ -7,11 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { GeneralPageRoutingModule } from './general-routing.module';
 
 import { GeneralPage } from './general.page';
-import { ProfileComponent } from './profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
 import { CommentsComponent } from './comments/comments.component';
+import { PostViewComponent } from './posts/profile-view/post-view.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, GeneralPageRoutingModule],
-  declarations: [GeneralPage, ProfileComponent, CommentsComponent],
+  declarations: [GeneralPage, PostsComponent, CommentsComponent, PostViewComponent],
 })
 export class GeneralPageModule {}
