@@ -35,16 +35,6 @@ Install lobby app with npm
 [MIT](https://choosealicense.com/licenses/mit/)
 
 
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
 
 ## Tech Stack
 
