@@ -59,4 +59,19 @@ export class SharedService {
   {
     return (moment(data, "YYYYMMDD").fromNow());
   }
+  cutString(data:string)
+  {
+    return (data.substring(0,75).concat('...'))
+  }
+  isLoggedIn()
+  {
+    const userDeets = sessionStorage.getItem('userdetails')
+    if(userDeets)
+    {
+      return true
+    }else{
+      return false
+    }
+  }
+  
 }

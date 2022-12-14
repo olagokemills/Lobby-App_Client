@@ -8,23 +8,23 @@
 
 
   <div class="profile-wrapper mt-5_5">
-    <ion-card *ngFor="let item of PostList?.posts">
+    <ion-card *ngFor="let item of Items">
       <ion-card-header [routerLink]="['/general/post',item?.id]">
-        <small>Olagoke  <ion-icon color="dark" name="stop-outline" ></ion-icon> {{item?.created_on | date : 'medium'}}</small>
-        <ion-card-title [routerLink]="['/general/post',123]">{{item?.title}}</ion-card-title>
+        <small>{{item?.created_by}}  <ion-icon color="dark" name="stop-outline" ></ion-icon> {{ utility.castDateDifference(item?.created_on)}}</small>
+        <ion-card-title [routerLink]="['/general/post',item?.id]">{{item?.title}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <div class="pointer" [routerLink]="['/general/post',item?.id]">
-           {{item?.description}}
+           {{ utility.cutString(item?.description)}}
         </div>
         <div class="d-flex justify-content-around pt-2">
           <span class="d-flex">
-            <ion-icon name="heart-outline"></ion-icon>
-            <small>21</small>
+            <ion-icon name="chatbubbles-outline"></ion-icon>&nbsp;
+            <small>{{item?.commentCount}}</small>
           </span>
-          <span class="d-flex">
-            <ion-icon name="eye-outline"></ion-icon>
-            <small>15</small>
+          <span class="d-flex" (click)="addBookmark(item)">
+            <ion-icon name="bookmarks-outline"></ion-icon>&nbsp;
+            <small>Bookmark</small>
           </span>
           <span class="d-flex pointer" (click)="copyToClip(item?.id)">
             <ion-icon name="share-outline"></ion-icon> &nbsp;
@@ -34,4 +34,8 @@
       </ion-card-content>
     </ion-card>
   </div>
+
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
