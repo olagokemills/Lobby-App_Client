@@ -12,7 +12,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { PostViewComponent } from './posts/profile-view/post-view.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, GeneralPageRoutingModule],
+  imports: [CommonModule, FormsModule, IonicModule, GeneralPageRoutingModule,FormsModule],
   declarations: [GeneralPage, PostsComponent, CommentsComponent, PostViewComponent],
 })
 export class GeneralPageModule {}

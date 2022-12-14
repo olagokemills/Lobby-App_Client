@@ -9,16 +9,16 @@
        <ion-icon name="arrow-back-outline" (click)="utility.goBack()"></ion-icon>
    </div>
     <div class="d-flex align-items-center">
-      <ion-icon name="person-circle-outline" size="large"></ion-icon>
-      <h6>Olagokemills</h6>
+      <ion-icon name="person-circle-outline" size="large"></ion-icon> &nbsp;
+      <h6>{{PostItem?.post.created_by}}</h6>
     </div>
-    <h6>{{PostItem?.title}}</h6>
+    <h6>{{PostItem?.post.title}}</h6>
     <p>
-      {{PostItem?.description}}
+      {{PostItem?.post.description}}
     </p>
     <div class="d-flex">
       <span class="p-2">
-        <ion-text color="medium">{{PostItem?.created_on | date : 'medium'}}</ion-text> 
+        <ion-text color="medium">{{PostItem?.post.created_on | date : 'medium'}}</ion-text> 
       </span>
       <span class="d-flex align-self-center">
         <ion-icon name="stop-outline"></ion-icon>
@@ -27,23 +27,12 @@
 
    <div class="view-border d-flex border-top">
       <span class="d-flex p-2">
-        <ion-text color="medium">Views</ion-text>
-        <ion-text>100</ion-text>
-      </span>
-      <span class="d-flex p-2">
-        <ion-text color="medium">Comments</ion-text>
-        <ion-text>15</ion-text>
-      </span> 
-      <span class="d-flex p-2">
-        <ion-text size="small" color="medium">Likes</ion-text>
-        <ion-text>15</ion-text>
+        <ion-text color="medium">Comments</ion-text> &nbsp;
+        <ion-text>{{PostItem?.post.commentCount}}</ion-text>
       </span> 
    </div>
 
   <div class="view-border d-flex justify-content-around">
-    <span class="d-flex p-2">
-      <ion-icon name="eye-outline" size="medium"></ion-icon> 
-    </span>
     <span class="d-flex p-2">
       <ion-icon name="chatbubbles-outline" size="medium"></ion-icon>
     </span>  
@@ -55,8 +44,8 @@
   <div>
     <ion-list>
         <ion-item>
-          <ion-textarea placeholder="Type something here"></ion-textarea>
-          <ion-button size="small" shape="round">Reply</ion-button>
+          <ion-textarea placeholder="Type something here" [(ngModel)]="message"  name="message"></ion-textarea>
+          <ion-button size="small" shape="round"(click)="PostComment()">Reply</ion-button>
         </ion-item>
     </ion-list>
   </div>
