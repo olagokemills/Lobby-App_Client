@@ -13,6 +13,13 @@
 
 <ion-content>
   <router-outlet></router-outlet>
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
 </ion-content>
 
 <ion-tabs>
@@ -26,10 +33,10 @@
       <ion-icon name="person-circle"></ion-icon>
       <ion-label>Work Places</ion-label>
     </ion-tab-button>
-
     <ion-tab-button tab="map">
       <ion-icon name="map"></ion-icon>
       <ion-label>Profile</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+

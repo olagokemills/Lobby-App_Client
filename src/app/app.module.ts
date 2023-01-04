@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HeaderInterceptor } from './core/interceptor/token.interceptor'
+import { SortByPipe } from './core/pipe/orderBy.pipe';
 
 @NgModule({
   declarations: [AppComponent],

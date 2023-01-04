@@ -23,7 +23,7 @@ export class PostViewComponent implements OnInit {
     public utility: SharedService
   ) {
     this.postId = this.activatedRoute.snapshot.params.id
-    this.userDeets = JSON.parse(sessionStorage.getItem('userDeets'))
+    this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
   }
 
   ngOnInit() {
@@ -57,10 +57,38 @@ export class PostViewComponent implements OnInit {
     subscribe(
       res=>{
         this.utility.presentToast('top', 'Comment addedd successfully');
+        this.fetchSinglePost(this.postId)
       },(err: ErrorModel) => {
         this.utility.presentToast('top', err.friendlyMessage);
       }
     )
+  }
+}
+LikePost(data:string, action:boolean)
+{
+
+  if(!this.utility.isLoggedIn())
+  {
+    return this.utility.presentToast('bottom','Please login to post a comment')
+  }else{
+    const body = {
+      commentId: data,
+      created_by: this.userDeets?.user?.id,
+      likeType: action
+    }
+    this.AppService.postData(body,'Like/CreateLike').
+    subscribe(
+      res=>{
+        this.utility.presentToast('top', 'Thanks for your feedback!');
+        this.fetchSinglePost(this.postId)
+      },(err: ErrorModel) => {
+        this.utility.presentToast('top', err.friendlyMessage);
+      }
+    )
+  }
+
+  {
+    
   }
 }
 

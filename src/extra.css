@@ -79,3 +79,7 @@ body{
 .pointer{
   cursor: pointer;
 }
+
+.text-xsm{
+  font-size: 12px;
+}

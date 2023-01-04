@@ -50,7 +50,7 @@
     </ion-list>
   </div>
 
-  <div class="pt-2 view-border border-top" *ngFor="let item of PostItem?.comments">
+  <div class="pt-2 view-border border-top" *ngFor="let item of PostItem?.comments | sortBy:'desc':'created_on'">
       <div class="d-flex align-items-center">
       <span class="">
           <ion-text>{{item?.created_by}}</ion-text>
@@ -62,18 +62,18 @@
       <p>{{item?.message}}</p>
 
       <div class="d-flex justify-content-around">
-        <span class="d-flex p-2 pointer">
+        <span class="d-flex p-2 pointer text-xsm" (click)="LikePost(item?.id, 1)">
           <ion-icon name="heart-outline"></ion-icon> &nbsp;
             Upvote
         </span> 
-        <span class="d-flex p-2 pointer">
+        <span class="d-flex p-2 pointer text-xsm" (click)="LikePost(item?.id, 0)">
           <ion-icon name="heart-dislike-outline"></ion-icon> &nbsp;
             Downvote
         </span> 
-        <span class="d-flex p-2 pointer">
+        <!-- <span class="d-flex p-2 pointer">
           <ion-icon name="thumbs-up-outline"></ion-icon>&nbsp;
            Total Likes  <ion-text>10</ion-text>
-        </span> 
+        </span>  -->
       </div>
   </div>
   <div  *ngIf="!PostItem?.comments" class="text-center">

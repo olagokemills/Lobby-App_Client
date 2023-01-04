@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
 
   Login(data: AuthModel) {
     this.utility.showLoading();
-    this.dataService.postData(data, 'user/login').subscribe((res) => {});
+    this.dataService.postData(data, 'user/login').subscribe((res) => {
+        sessionStorage.setItem('userdetails', JSON.stringify(res))
+        this.utility.router.navigate(['/general/post'])
+    });
   }
 }
