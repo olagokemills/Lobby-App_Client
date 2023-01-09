@@ -31,6 +31,8 @@ export class RegisterComponent implements OnInit {
     this.dataService.postData(data, 'user/register').subscribe((res) => {
       if (res) {
         this.Utility.presentToast('top', 'Registration Successful!');
+        sessionStorage.setItem('userdetails', JSON.stringify(res))
+        this.Utility.router.navigate(['/general/post'])
         setTimeout(() => {
           this.Utility.router.navigate(['/general']);
           //route to home

@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
     this.dataService.postData(data, 'user/login').subscribe((res) => {
         sessionStorage.setItem('userdetails', JSON.stringify(res))
         this.utility.router.navigate(['/general/post'])
+    },
+    err=>{
+      this.utility.presentToast('top', err.message)
     });
   }
 }

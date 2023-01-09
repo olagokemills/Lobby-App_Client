@@ -2,24 +2,17 @@
   <ion-toolbar>
     <div class="d-flex align-items-center">
       <h2>L</h2>
-      <ion-searchbar
+      <!-- <ion-searchbar
         search-icon="search-circle"
         animated="true"
         placeholder="Search by keyword"
-      ></ion-searchbar>
+      ></ion-searchbar> -->
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <router-outlet></router-outlet>
-  <ion-fab slot="fixed" vertical="top" horizontal="end">
-    <ion-fab-button (click)="openModal()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-
 </ion-content>
 
 <ion-tabs>
@@ -29,12 +22,12 @@
       <ion-label>Posts</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="speakers">
-      <ion-icon name="person-circle"></ion-icon>
-      <ion-label>Work Places</ion-label>
+    <ion-tab-button tab="add-post">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Add Post</ion-label>
     </ion-tab-button>
-    <ion-tab-button tab="map">
-      <ion-icon name="map"></ion-icon>
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-circle-outline"></ion-icon>
       <ion-label>Profile</ion-label>
     </ion-tab-button>
   </ion-tab-bar>

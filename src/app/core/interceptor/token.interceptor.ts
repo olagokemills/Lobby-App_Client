@@ -13,7 +13,6 @@ import { Observable } from 'rxjs'
 export class HeaderInterceptor implements HttpInterceptor{
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
         const token = JSON.parse(sessionStorage.getItem('userdetails'))?.accessToken 
-        console.log(token)
         const headerDict = {
             Authorization: `Bearer ${token}`,
             "Permissions-Policy": "camera=*,geolocation=*,microphone=*,autoplay=*,fullscreen=*,picture-in-picture=*,sync-xhr=*,encrypted-media=*,oversized-images=*",

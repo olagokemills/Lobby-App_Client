@@ -15,7 +15,7 @@ export class PostViewComponent implements OnInit {
 
   postId:string;
   PostItem: any;
-  message:string;
+  message:string = '';
   userDeets:any;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -48,6 +48,8 @@ export class PostViewComponent implements OnInit {
   {
     return this.utility.presentToast('bottom','Please login to post a comment')
   }else{
+    if(this.message.length <5)
+    return this.utility.presentToast('top', 'Comment is too short')
     const body = {
       message: this.message,
       postId: this.postId,
@@ -56,6 +58,7 @@ export class PostViewComponent implements OnInit {
     this.AppService.postData(body,'Comment').
     subscribe(
       res=>{
+        this.message = '';
         this.utility.presentToast('top', 'Comment addedd successfully');
         this.fetchSinglePost(this.postId)
       },(err: ErrorModel) => {
@@ -66,10 +69,9 @@ export class PostViewComponent implements OnInit {
 }
 LikePost(data:string, action:boolean)
 {
-
   if(!this.utility.isLoggedIn())
   {
-    return this.utility.presentToast('bottom','Please login to post a comment')
+    return this.utility.presentToast('bottom','Please login to give feedback')
   }else{
     const body = {
       commentId: data,
@@ -85,10 +87,6 @@ LikePost(data:string, action:boolean)
         this.utility.presentToast('top', err.friendlyMessage);
       }
     )
-  }
-
-  {
-    
   }
 }
 

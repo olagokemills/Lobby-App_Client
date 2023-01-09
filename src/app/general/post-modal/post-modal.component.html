@@ -10,8 +10,21 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-item>
-      <ion-label position="stacked">Your name</ion-label>
-      <ion-input [(ngModel)]="name" placeholder="Your name"></ion-input>
-    </ion-item>
+    <form [formGroup]="PostForm" (ngSubmit)="SubmitPost(PostForm.value)">
+        <ion-item>
+            <ion-label position="stacked">Title (make it short)</ion-label>
+            <ion-input formControlName="title" placeholder="Post title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-textarea formControlName="description" rows="5"
+                placeholder="Details of your post"></ion-textarea>
+        </ion-item>
+        <ion-button
+              expand="block"
+              type="Submit"
+              >Submit Post
+        </ion-button>
+    </form>
+    
   </ion-content>

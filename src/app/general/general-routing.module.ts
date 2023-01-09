@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GeneralPage } from './general.page';
 import { PostViewComponent } from './posts/profile-view/post-view.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostModalComponent } from './post-modal/post-modal.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,14 @@ const routes: Routes = [
         path: 'post/:id',
         component: PostViewComponent,
       },
+      {
+        path:'add-post',
+        component: PostModalComponent
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+      }
     ],
   },
 ];

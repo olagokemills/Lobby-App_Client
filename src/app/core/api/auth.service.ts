@@ -36,10 +36,12 @@ export class AuthService {
   }
 
   handleError(error: HttpErrorResponse): Observable<ErrorModel> {
+    console.log(error)
     let dataError = new ErrorModel();
     dataError.errorNumber = error.status;
     dataError.friendlyMessage = 'An error occurred, please try again';
-    dataError.message = error.statusText;
+    dataError.message = error.error.message;
+    // if(instanceof error )
     return throwError(dataError);
   }
 }
