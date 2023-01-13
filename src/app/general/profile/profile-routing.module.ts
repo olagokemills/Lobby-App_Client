@@ -7,19 +7,19 @@ import { ProfilePage } from './profile.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: ProfilePage,
-    children: [
-      {
-        path: 'my-posts',
-        component: MyPostsComponent,
-      },
-      {
-        path:'bookmarks',
-        component:BookmarksComponent
-      }
-    ]
+    path:'',
+    redirectTo:'my-posts',
+    pathMatch:'full'
+  },
+  {
+    path: 'my-posts',
+    component: MyPostsComponent,
+  },
+  {
+    path:'bookmarks',
+    component:BookmarksComponent
   }
+
 ];
 
 @NgModule({

@@ -34,6 +34,11 @@ export class AuthService {
     return this.http 
         .get(`${this.apiUrl + url}/${data}`)
   }
+  fetchItemParam(data, url:string, paramName)
+  {
+    return this.http 
+        .get(`${this.apiUrl + url}?${paramName}=${data}`)
+  }
 
   handleError(error: HttpErrorResponse): Observable<ErrorModel> {
     console.log(error)

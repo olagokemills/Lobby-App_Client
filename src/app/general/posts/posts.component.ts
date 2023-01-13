@@ -25,7 +25,8 @@ export class PostsComponent implements OnInit {
     private utility: SharedService,
     private paged: PaginationService
   ) {
-    this.userDeets = sessionStorage.getItem('userDeets')
+    this.utility.PageName = 'Posts'
+    this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
   }
 
   ngOnInit() {
@@ -98,7 +99,7 @@ export class PostsComponent implements OnInit {
     return this.utility.presentToast('bottom','Please login to save post!')
   }else{
    const body = {
-    userId: "string",
+    userId: this.userDeets.user.id,
     postId: data.id
     }
     this.AppService.postData(

@@ -9,13 +9,15 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 import { ProfilePage } from './profile.page';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { MyPostsComponent } from './posts/my-posts.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    ClipboardModule
   ],
   declarations: [ProfilePage, BookmarksComponent, MyPostsComponent]
 })

@@ -5,12 +5,14 @@ import { GeneralPage } from './general.page';
 import { PostViewComponent } from './posts/profile-view/post-view.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostModalComponent } from './post-modal/post-modal.component';
+import { ProfilePage } from './profile/profile.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: GeneralPage,
-    children: [
+      {
+        path: '',
+        redirectTo:'post',
+        pathMatch:'full'
+      },
       {
         path: 'post',
         component: PostsComponent,
@@ -25,10 +27,10 @@ const routes: Routes = [
       },
       {
         path: 'profile',
+        component:ProfilePage,
         loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
       }
-    ],
-  },
+
 ];
 
 @NgModule({

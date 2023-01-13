@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { SharedService } from '../core/services/shared.service';
 import { PostModalComponent } from './post-modal/post-modal.component';
 
 @Component({
@@ -10,8 +11,11 @@ import { PostModalComponent } from './post-modal/post-modal.component';
 export class GeneralPage implements OnInit {
 
   constructor(
-    private modalCtrl: ModalController
-  ) { }
+    private modalCtrl: ModalController,
+    public utility:SharedService
+  ) { 
+    console.log(this.utility.router)
+  }
 
   ngOnInit() {
   }

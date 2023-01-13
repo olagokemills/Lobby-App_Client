@@ -18,6 +18,7 @@ export class PostModalComponent implements OnInit {
         private fb: FormBuilder,
         private AppService: AuthService,
         public utility: SharedService){
+          this.utility.PageName = 'Add Post'
             this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
         }
 

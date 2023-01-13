@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { GeneralPage } from './general/general.page';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'general',
+    component:GeneralPage,
     loadChildren: () => import('./general/general.module').then( m => m.GeneralPageModule)
   },
 ];

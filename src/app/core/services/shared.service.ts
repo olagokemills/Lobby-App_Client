@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Clipboard } from '@angular/cdk/clipboard';
 import { LoadingController, ToastController } from '@ionic/angular';
@@ -11,12 +11,15 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class SharedService {
+
+  PageName:string = '';
   constructor(
     private loadingCtrl: LoadingController,
     public toastController: ToastController,
     public router: Router,
     public clipBoard: Clipboard,
-    public location: Location
+    public location: Location,
+    public activatedRoute: ActivatedRoute
   ) {}
 
   async showLoading() {

@@ -22,6 +22,7 @@ export class PostViewComponent implements OnInit {
     private AppService: AuthService,
     public utility: SharedService
   ) {
+    this.utility.PageName = 'View Post'
     this.postId = this.activatedRoute.snapshot.params.id
     this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
   }
