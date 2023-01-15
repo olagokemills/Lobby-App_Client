@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/api/auth.service';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { SharedService } from 'src/app/core/services/shared.service';
@@ -23,7 +23,8 @@ export class PostsComponent implements OnInit {
     private AppService: AuthService,
     private clipboard: Clipboard,
     private utility: SharedService,
-    private paged: PaginationService
+    private paged: PaginationService,
+    private Changer: ChangeDetectorRef 
   ) {
     this.utility.PageName = 'Posts'
     this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
