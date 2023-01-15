@@ -32,5 +32,8 @@ export class GeneralPage implements OnInit {
       //this.message = `Hello, ${data}!`;
     }
   }
+  Anticipate(){
+    this.utility.presentToast('top','Something huge is cooking !')
+  }
 
 }

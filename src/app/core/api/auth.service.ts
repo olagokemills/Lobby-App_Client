@@ -9,12 +9,13 @@ import { AuthModel } from '../models/auth.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorModel } from '../models/error.model';
+import { SharedService } from '../services/shared.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public utility:SharedService) {}
 
   apiUrl = 'https://lobby-production.up.railway.app/api/';
 
@@ -41,7 +42,9 @@ export class AuthService {
   }
 
   handleError(error: HttpErrorResponse): Observable<ErrorModel> {
-    console.log(error)
+    // if(error.status == 401 && this.utility.isLoggedIn()){
+    //   this.
+    // }implement error interceptor here?
     let dataError = new ErrorModel();
     dataError.errorNumber = error.status;
     dataError.friendlyMessage = 'An error occurred, please try again';

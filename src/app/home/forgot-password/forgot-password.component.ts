@@ -19,11 +19,12 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit() {
     this.ResetForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
     });
+    console.log('..s')
   }
 
   ResetPassword(data: string) {
+    console.log('wotlin')
     this.utility.showLoading();
     this.dataService
       .postData(data, 'user/SendResetPasswordMail')

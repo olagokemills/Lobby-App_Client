@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { RegisterComponent } from './register/register.component';
     HomePageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [HomePage, LoginComponent, RegisterComponent],
+  declarations: [HomePage, LoginComponent, RegisterComponent, ForgotPasswordComponent],
 })
 export class HomePageModule {}
