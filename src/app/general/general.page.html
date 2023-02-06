@@ -5,11 +5,15 @@
           <ion-icon name="arrow-back-outline" (click)="utility.goBack()"></ion-icon>
       </div>
       <div>
-        <ion-img src="assets/images/logo.jpg" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
-        <!-- <h4>{{utility.PageName}}</h4> -->
+        <ion-img src="assets/images/logo.jpg" alt="logo"></ion-img>
       </div>
       <div class="p-2">
-        <ion-icon name="diamond-outline" (click)="Anticipate()"></ion-icon>
+        <ng-container *ngIf="utility.isLoggedIn();else elseBlock">
+           <ion-icon name="log-out-outline"   (click)="utility.logOut()"></ion-icon>
+        </ng-container>
+        <ng-template #elseBlock>
+          <ion-icon name="diamond-outline" (click)="Anticipate()"></ion-icon>
+        </ng-template>
       </div>
       <!-- <ion-searchbar
         search-icon="search-circle"
@@ -17,6 +21,7 @@
         placeholder="Search by keyword"
       ></ion-searchbar> -->
     </div>
+    <ion-progress-bar type="indeterminate" *ngIf="utility.isLoading"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 

@@ -13,6 +13,7 @@ import * as moment from 'moment';
 export class SharedService {
 
   PageName:string = '';
+  isLoading:boolean = false;
   constructor(
     private loadingCtrl: LoadingController,
     public toastController: ToastController,
@@ -75,6 +76,13 @@ export class SharedService {
     }else{
       return false
     }
+  }
+  logOut(){
+    sessionStorage.clear()
+    this.presentToast('bottom','You are being logged out!')
+    setTimeout(() => {
+      this.router.navigate(['/login'])
+    }, 900);
   }
   
 }

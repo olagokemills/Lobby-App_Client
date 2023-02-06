@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit {
       if (res) {
         this.Utility.presentToast('top', 'Registration Successful!');
         sessionStorage.setItem('userdetails', JSON.stringify(res))
-        this.Utility.router.navigate(['/general/post'])
+        this.Utility.router.navigate(['/posts'])
         setTimeout(() => {
-          this.Utility.router.navigate(['/general']);
+          this.Utility.router.navigate(['/posts']);
           //route to home
         }, 1500);
       }

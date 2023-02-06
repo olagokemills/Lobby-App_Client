@@ -44,6 +44,7 @@ export class PostsComponent implements OnInit {
 
   FetchPosts()
   {
+    this.utility.isLoading = true
     let body = {
       page:this.currentPage,
       size:2
@@ -57,7 +58,7 @@ export class PostsComponent implements OnInit {
     .subscribe(
       //declare dt type here
       (res:any)=>{
-        //this.Items = res.posts
+        this.utility.isLoading = false
         this.Items.push(...res.posts);
         this.totalCount = res.totalPosts
         this.pager = this.paged.getPager(res.totalPosts, this.activePage) 

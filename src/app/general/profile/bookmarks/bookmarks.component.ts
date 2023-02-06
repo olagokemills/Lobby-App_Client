@@ -21,22 +21,21 @@ export class BookmarksComponent implements OnInit {
     private utility: SharedService,
     private paged: PaginationService
   ) { 
-    this.utility.PageName = 'My Bookmarks'
-    this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
+    this.initiateUser()
   }
 
   ngOnInit() {
-    this.runFetch()
+    
   }
 
   runFetch()
   {
-    console.log('runs')
     let userId = this.userDeets.user.id
     this.AppService.fetchItemParam(userId, 'Post/GetUserBookMark','userId')
     .subscribe(
       //declare dt type here
       (res:any)=>{
+        this.utility.isLoading = false
         this.Items = res
       }
     )
@@ -47,6 +46,24 @@ export class BookmarksComponent implements OnInit {
     this.clipboard.copy(toCopy);
     this.utility.presentToast('bottom','Link copied for sharing');
   }
+
+  initiateUser()
+  {
+    this.utility.isLoading = true
+    if(this.utility.isLoggedIn()){
+      this.userDeets = JSON.parse(sessionStorage.getItem('userdetails'))
+      setTimeout(() => {
+         this.runFetch()
+      }, 1200);
+    }
+    else{
+      this.utility.presentToast('top','You need to be signed in!')
+      setTimeout(() => {
+        this.utility.router.navigate(['/login'])
+      }, 1200);
+    }
+  }
+
   
 
 }

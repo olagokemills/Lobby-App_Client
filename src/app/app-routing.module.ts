@@ -9,7 +9,7 @@ const routes: Routes = [
       import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
-    path: 'general',
+    path: 'posts',
     component:GeneralPage,
     loadChildren: () => import('./general/general.module').then( m => m.GeneralPageModule)
   },

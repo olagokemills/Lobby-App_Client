@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('userdetails', JSON.stringify(res))
         this.tokenStorage.saveToken(res.accessToken);
         this.tokenStorage.saveRefreshToken(res.refreshToken);
-        this.utility.router.navigate(['/general/post'])
+        this.utility.router.navigate(['/posts'])
     },
     err=>{
       this.utility.presentToast('top', err.message)

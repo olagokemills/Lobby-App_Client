@@ -51,7 +51,7 @@ export class PostModalComponent implements OnInit {
             this.utility.presentToast('bottom','Post created successfully')
             setTimeout(() => {
               this.PostForm.reset()
-              this.utility.router.navigate(['/general/post'])
+              this.utility.router.navigate(['/posts'])
             }, 1500);
             
         },

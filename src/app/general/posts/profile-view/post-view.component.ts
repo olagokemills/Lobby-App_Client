@@ -33,8 +33,10 @@ export class PostViewComponent implements OnInit {
 
   fetchSinglePost(id:string)
   {
+    this.utility.isLoading = true
     this.AppService.fetchSinglePost(id, 'Post').subscribe(
       res=>{
+        this.utility.isLoading = false
         this.PostItem = res
       },
       (err: ErrorModel) => {
@@ -45,6 +47,7 @@ export class PostViewComponent implements OnInit {
 
   PostComment()
   {
+    this.utility.isLoading = true
     if(!this.utility.isLoggedIn())
   {
     return this.utility.presentToast('bottom','Please login to post a comment')
@@ -59,6 +62,7 @@ export class PostViewComponent implements OnInit {
     this.AppService.postData(body,'Comment').
     subscribe(
       res=>{
+        this.utility.isLoading = false
         this.message = '';
         this.utility.presentToast('top', 'Comment addedd successfully');
         this.fetchSinglePost(this.postId)

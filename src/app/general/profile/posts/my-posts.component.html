@@ -1,12 +1,12 @@
 <ion-content class="ion-padding">
     <div class="profile-wrapper mt-5_5">
         <ion-card *ngFor="let item of Items">
-          <ion-card-header [routerLink]="['/general/post',item?.id]">
+          <ion-card-header [routerLink]="['/posts',item?.id]">
             <small>{{item?.created_by}}  <ion-icon color="dark" name="stop-outline" ></ion-icon> {{ utility.castDateDifference(item?.created_on)}}</small>
-            <ion-card-title [routerLink]="['/general/post',item?.id]">{{item?.title}}</ion-card-title>
+            <ion-card-title [routerLink]="['/posts',item?.id]">{{item?.title}}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <div class="pointer" [routerLink]="['/general/post',item?.id]">
+            <div class="pointer" [routerLink]="['/posts',item?.id]">
                {{ utility.cutString(item?.description)}}
             </div>
             <div class="d-flex justify-content-around pt-2">

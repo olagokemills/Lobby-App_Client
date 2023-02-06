@@ -10,16 +10,7 @@ import { ProfilePage } from './profile/profile.page';
 const routes: Routes = [
       {
         path: '',
-        redirectTo:'post',
-        pathMatch:'full'
-      },
-      {
-        path: 'post',
         component: PostsComponent,
-      },
-      {
-        path: 'post/:id',
-        component: PostViewComponent,
       },
       {
         path:'add-post',
@@ -29,8 +20,11 @@ const routes: Routes = [
         path: 'profile',
         component:ProfilePage,
         loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+      },
+      {
+        path: ':id',
+        component: PostViewComponent,
       }
-
 ];
 
 @NgModule({
